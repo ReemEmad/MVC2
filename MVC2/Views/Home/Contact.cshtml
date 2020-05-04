@@ -1,0 +1,41 @@
+﻿@using MVC2.Models
+
+@{
+    ViewBag.Title = "Form";
+}
+@model Employee
+
+<h2>@ViewBag.Title.</h2>
+
+<!Doctype html>
+<html>
+<head>
+    <title></title>
+    <style>
+        .input-validation-error 
+        {
+            border: 1px solid red;
+        }
+
+        .field-validation-error
+        {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="post">
+        <div>
+            @Html.ValidationSummary()
+        </div>
+        First name:@Html.TextAreaFor(m => m.fname) @Html.ValidationMessageFor(m => m.fname)
+
+        Last name:@Html.TextAreaFor(m => m.lname) @Html.ValidationMessageFor(m => m.lname)
+
+        Email :@Html.TextAreaFor(m => m.email) @Html.ValidationMessageFor(m => m.email)
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
